@@ -1,5 +1,21 @@
 module S3Lib
   class Dir
+    def self.dir_mode(mode)
+      if mode.kind_of?(String)
+        mode =~ /^0/ || mode = "0#{mode}"
+      elsif mode.to_s == mode.to_s(10)
+        # Mode is in Fixnum::base 10
+        mode = mode.to_s
+      else
+        mode = mode.to_s(8)
+      end
+
+      (-3..-1).each do |i|
+        mode[i] = mode[i] + 1 if !mode[i].zero? && mode.even?
+      end
+      mode
+    end
+
     def connection
       @connection ||= begin
         require 'fog'

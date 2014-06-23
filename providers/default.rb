@@ -4,7 +4,7 @@ action :create do
   directory new_resource.name do
     owner     new_resource.owner
     group     new_resource.group
-    mode      new_resource.mode
+    mode      S3Lib::Dir.dir_mode new_resource.mode
     action    :create
     recursive new_resource.recursive
   end
@@ -22,7 +22,7 @@ action :create do
       directory "#{new_resource.name}#{filename}" do
         owner     new_resource.owner
         group     new_resource.group
-        mode      new_resource.mode
+        mode      S3Lib::Dir.dir_mode new_resource.mode
       end
     else
       s3_file "#{new_resource.name}#{filename}" do
