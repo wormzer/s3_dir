@@ -4,7 +4,7 @@ maintainer_email 'eric.herot@evertrue.com'
 license          'All rights reserved'
 description      'Installs/Configures s3_dir'
 long_description 'Installs/Configures s3_dir'
-version          '0.1.0'
+version          '1.0.1'
 
 depends 's3_file', '>= 2.3.0'
 depends 'et_fog', '>= 1.0.5'
