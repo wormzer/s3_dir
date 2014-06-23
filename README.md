@@ -1,41 +1,33 @@
-# s3_dir-cookbook
+# s3_dir
 
-TODO: Enter the cookbook description here.
-
-## Supported Platforms
-
-TODO: List your supported platforms.
-
-## Attributes
-
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['s3_dir']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+This cookbook leverages s3_file to recursively download all of the files in a specified S3 "directory."
 
 ## Usage
 
-### s3_dir::default
+### s3_dir Resource
 
-Include `s3_dir` in your node's `run_list`:
-
-```json
-{
-  "run_list": [
-    "recipe[s3_dir::default]"
-  ]
-}
+```ruby
+s3_dir '/local/path' do
+  bucket            's3.bucket.name'
+  dir               's3 directory'
+  owner             'local_owner'
+  group             'local_group'
+  mode              0644
+  recursive         true
+  access_key_id     ACCESS_KEY
+  secret_access_key SECRET_ACCESS_KEY
+end
 ```
+
+* `name` - The local path where the files should be downloaded to
+* `bucket` - The S3 bucket name you want to download from
+* `dir` - The directory within the bucket where the files will come from
+* `owner` - What you want the local file/directory owner to be set to
+* `group` - What you want the local file/directory group to be set to
+* `mode` - File permissions.  Created directories will inherit these permissions plus executability.
+* `recursive` - Whether parent directories of `name` should be created recursively
+* `access_key_id` - AWS Access Key ID
+* `secret_access_key` - AWS Secret Key
 
 ## Contributing
 
@@ -48,4 +40,4 @@ Include `s3_dir` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: EverTrue, Inc. (<eric.herot@evertrue.com>)
+Author:: EverTrue, Inc. (<devops@evertrue.com>)
