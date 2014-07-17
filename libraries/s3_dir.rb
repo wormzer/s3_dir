@@ -1,7 +1,7 @@
 module S3Lib
   class Dir
     def self.dir_mode(mode)
-      if mode.kind_of?(String)
+      if mode.is_a?(String)
         mode =~ /^0/ || mode = "0#{mode}"
       elsif mode.to_s == mode.to_s(10)
         # Mode is in Fixnum::base 10
