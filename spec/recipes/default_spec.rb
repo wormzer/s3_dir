@@ -4,12 +4,13 @@ describe 's3_dir::default' do
   let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
 
   before do
-    Chef::EncryptedDataBagItem.stub(:load).with('secrets', 'aws_credentials').and_return(
-      'RailsDeploy-dev' => {
-        'access_key_id'     => 'SAMPLE_ACCESS_KEY_ID',
-        'secret_access_key' => 'SECRET_ACCESS_KEY'
-      }
-    )
+    allow(Chef::EncryptedDataBagItem).to receive(:load).with('secrets', 'aws_credentials')
+      .and_return(
+        'RailsDeploy-dev' => {
+          'access_key_id'     => 'SAMPLE_ACCESS_KEY_ID',
+          'secret_access_key' => 'SECRET_ACCESS_KEY'
+        }
+      )
   end
 
   it 'includes the `et_fog::default` recipe' do
