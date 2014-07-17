@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe 'et_fog::default'
+
 keys = Chef::EncryptedDataBagItem.load('secrets', 'aws_credentials')['RailsDeploy-dev']
 
 s3_dir '/tmp/provisioning' do

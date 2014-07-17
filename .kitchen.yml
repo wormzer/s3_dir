@@ -17,5 +17,4 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[et_fog::default]
       - recipe[s3_dir::default]

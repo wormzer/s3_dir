@@ -12,6 +12,10 @@ describe 's3_dir::default' do
     )
   end
 
+  it 'includes the `et_fog::default` recipe' do
+    expect(chef_run).to include_recipe 'et_fog::default'
+  end
+
   it 'downloads `/tmp/provisioning` from S3' do
     expect(chef_run).to create_s3_dir('/tmp/provisioning').with(
       bucket:            'provisioning.evertrue.com',
