@@ -2,7 +2,7 @@ Documentation:
   Enabled: false
 
 # Disable encoding requirement
-Encoding: 
+Encoding:
   Enabled: false
 
 # The default 79 character limit is sometimes unproductive.
@@ -16,6 +16,6 @@ MethodLength:
 CyclomaticComplexity:
   Max: 10
 
+# Advantageous for readability to line up attributes
 SingleSpaceBeforeFirstArg:
-  Exclude:
-    - metadata.rb
+  Enabled: false
