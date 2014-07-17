@@ -7,4 +7,3 @@ long_description 'Installs/Configures s3_dir'
 version          '1.0.1'
 
 depends 's3_file', '>= 2.3.0'
-depends 'et_fog', '>= 1.0.5'
