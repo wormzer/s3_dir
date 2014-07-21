@@ -12,8 +12,8 @@ This cookbook leverages the [`s3_file` cookbook](https://supermarket.getchef.com
 s3_dir '/local/path' do
   bucket            's3.bucket.name'
   dir               's3_directory'
-  owner             'local_owner'
-  group             'local_group'
+  owner             'root'
+  group             'root'
   mode              0644
   recursive         true
   access_key_id     'ACCESS_KEY'
@@ -24,8 +24,8 @@ end
 * `name` - The local path where the files should be downloaded to
 * `bucket` - The S3 bucket name you want to download from
 * `dir` - The directory within the bucket where the files will come from
-* `owner` - What you want the local file/directory owner to be set to
-* `group` - What you want the local file/directory group to be set to
+* `owner` - What you want the local file/directory owner to be set to. Defaults to `root`.
+* `group` - What you want the local file/directory group to be set to. Defaults to `root`.
 * `mode` - File permissions.  Created directories will inherit these permissions plus executability.
 * `recursive` - Whether parent directories of `name` should be created recursively
 * `access_key_id` - AWS Access Key ID

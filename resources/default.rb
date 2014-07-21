@@ -1,8 +1,8 @@
 actions :create
 
 attribute :name,              kind_of: String, name_attribute: true
-attribute :owner,             kind_of: [String, NilClass],          default: nil
-attribute :group,             kind_of: [String, NilClass],          default: nil
+attribute :owner,             kind_of: [String],                    default: 'root'
+attribute :group,             kind_of: [String],                    default: 'root'
 attribute :mode,              kind_of: [String, Integer, NilClass], default: nil
 attribute :bucket,            kind_of: String
 attribute :dir,               kind_of: String,                      default: '/'
