@@ -2,7 +2,7 @@
 
 # s3_dir
 
-This cookbook leverages the [`s3_file` cookbook](https://supermarket.getchef.com/cookbooks/s3_file) to recursively download all of the files in a specified S3 “directory.”
+This cookbook leverages the [`s3_file` cookbook](https://supermarket.getchef.com/cookbooks/s3_file) to recursively download all of the files in a specified S3 “directory.” It uses the [`et_fog` cookbook](https://supermarket.getchef.com/cookbooks/et_fog) cookbook to retrieve a listing of said “directories”.
 
 ## Usage
 
