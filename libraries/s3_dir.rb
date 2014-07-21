@@ -11,7 +11,7 @@ module S3Lib
       end
 
       (-3..-1).each do |i|
-        mode[i] = mode[i] + 1 if !mode[i].zero? && mode.even?
+        mode[i] = (mode[i].to_i + 1).to_s if !mode[i].to_i.zero? && mode.to_i.even?
       end
       mode
     end

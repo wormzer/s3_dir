@@ -14,7 +14,7 @@ s3_dir '/local/path' do
   dir               's3_directory'
   owner             'root'
   group             'root'
-  mode              0644
+  mode              '0755'
   recursive         true
   access_key_id     'ACCESS_KEY'
   secret_access_key 'SECRET_ACCESS_KEY'
@@ -26,7 +26,7 @@ end
 * `dir` - The directory within the bucket where the files will come from
 * `owner` - What you want the local file/directory owner to be set to. Defaults to `root`.
 * `group` - What you want the local file/directory group to be set to. Defaults to `root`.
-* `mode` - File permissions.  Created directories will inherit these permissions plus executability.
+* `mode` - File permissions.  Created directories will inherit these permissions plus executability. Defaults to '0755'
 * `recursive` - Whether parent directories of `name` should be created recursively
 * `access_key_id` - AWS Access Key ID
 * `secret_access_key` - AWS Secret Key

@@ -3,7 +3,7 @@ actions :create
 attribute :name,              kind_of: String, name_attribute: true
 attribute :owner,             kind_of: [String],                    default: 'root'
 attribute :group,             kind_of: [String],                    default: 'root'
-attribute :mode,              kind_of: [String, Integer, NilClass], default: nil
+attribute :mode,              kind_of: [String, Integer],           default: '0775'
 attribute :bucket,            kind_of: String
 attribute :dir,               kind_of: String,                      default: '/'
 attribute :recursive,         kind_of: [TrueClass, FalseClass],     default: false
