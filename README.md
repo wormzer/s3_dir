@@ -2,22 +2,22 @@
 
 # s3_dir
 
-This cookbook leverages s3_file to recursively download all of the files in a specified S3 "directory."
+This cookbook leverages the [`s3_file` cookbook](https://supermarket.getchef.com/cookbooks/s3_file) to recursively download all of the files in a specified S3 “directory.”
 
 ## Usage
 
-### s3_dir Resource
+### `s3_dir` Resource
 
 ```ruby
 s3_dir '/local/path' do
   bucket            's3.bucket.name'
-  dir               's3 directory'
+  dir               's3_directory'
   owner             'local_owner'
   group             'local_group'
   mode              0644
   recursive         true
-  access_key_id     ACCESS_KEY
-  secret_access_key SECRET_ACCESS_KEY
+  access_key_id     'ACCESS_KEY'
+  secret_access_key 'SECRET_ACCESS_KEY'
 end
 ```
 
