@@ -11,8 +11,14 @@ action :create do
 
   s3_dir_lib = S3Lib::Dir.new(
     new_resource.access_key_id,
-    new_resource.secret_access_key
+    new_resource.secret_access_key,
+    new_resource.mock
   )
+
+  s3_dir_lib.build_mock_env(
+    new_resource.bucket,
+    new_resource.dir
+  ) if new_resource.mock
 
   s3_dir_lib.ls(
     new_resource.bucket,

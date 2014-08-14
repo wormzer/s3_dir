@@ -20,6 +20,8 @@ module S3Lib
       @connection ||= begin
         require 'fog'
 
+        Fog.mock! if @is_mock
+
         Fog::Storage::AWS.new(
           aws_access_key_id: @access_key_id,
           aws_secret_access_key: @secret_access_key,
@@ -28,9 +30,18 @@ module S3Lib
       end
     end
 
-    def initialize(access_key_id, secret_access_key)
+    def initialize(access_key_id, secret_access_key, is_mock)
       @access_key_id = access_key_id
       @secret_access_key = secret_access_key
+      @is_mock = is_mock
+    end
+
+    def build_mock_env(bucket, dir)
+      d = connection.directories.create(
+        key: bucket,
+        public: true
+      )
+      d.files.create(key: "#{dir}/testdir/", body: "content\n", public: true)
     end
 
     def ls(bucket, dir)
@@ -38,9 +49,14 @@ module S3Lib
       dir.sub!(/^\//, '')
 
       bucket_obj = connection.directories.get(bucket)
-      listing = bucket_obj.files.select { |o| o.key =~ /^#{Regexp.escape(dir)}/ }
-      listing = listing.reject { |o| o.key == "#{dir}/" }
-      listing.map { |o| o.key.sub(/#{Regexp.escape(dir)}/, '') }
+      fail "Bucket #{bucket} not found." if bucket_obj.nil?
+
+      # 'files' is not a proper array and sometimes mishandles 'select.'
+      # This converts it.
+      arr = []
+      bucket_obj.files.each { |f| arr << f }
+      listing = arr.select { |o| o.key =~ /^\/#{Regexp.escape(dir)}/ }
+      listing.map { |o| o.key.sub(/\/#{Regexp.escape(dir)}/, '') }
     end
   end
 end
