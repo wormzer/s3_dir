@@ -1,6 +1,11 @@
 s3_dir CHANGELOG
 ================
 
+v1.2.0 (2014-08-14)
+-------------------
+
+* Do all testing with mock instead of depending on a private external s3 bucket.
+
 v1.1.0 (2014-07-21)
 -------------------
 
