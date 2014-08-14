@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/evertrue/s3_dir.svg?branch=master)](https://travis-ci.org/evertrue/s3_dir)
+[![Coverage Status](https://img.shields.io/coveralls/evertrue/s3_dir.svg)](https://coveralls.io/r/evertrue/s3_dir)
 
 # s3_dir
 
