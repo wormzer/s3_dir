@@ -7,6 +7,12 @@ This cookbook leverages the [`s3_file` cookbook](https://supermarket.getchef.com
 
 ## Usage
 
+Firstly, you will need to include `et_fog` in your recipe in order to install the Fog library in Chef, e.g.:
+
+```ruby
+include_recipe 'et_fog'
+```
+
 ### `s3_dir` Resource
 
 ```ruby
