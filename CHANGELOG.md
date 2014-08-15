@@ -1,6 +1,11 @@
 s3_dir CHANGELOG
 ================
 
+v1.2.2 (2014-08-15)
+-------------------
+
+* Several changes to get Travis-CI working in full-convergence mode.
+
 v1.2.1 (2014-08-14)
 -------------------
 
