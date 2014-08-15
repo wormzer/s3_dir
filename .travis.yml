@@ -19,8 +19,6 @@ before_install:
 - bundle exec berks install --debug
 script:
 - bundle exec berks install && KITCHEN_LOG=debug bundle exec rake travis
-after_script:
-- bundle exec kitchen destroy
 notifications:
   slack:
     secure: N2Jmz2nONP/+cJDTdyjKtXhNqUK95AYAMpBg/J5LzjRzor05Wp0jv/Gl24JmQ1l+LjOgTfb+rgkdsITXURtswbFChlWHz2SPfD8Q3bDt97KOk3yZ55TKm8HKNzXcnCI1wyLYaUqZiubpnIFfCax36/IK07j7CmBN6AEs+wSIPro=
