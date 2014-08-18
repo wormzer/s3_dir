@@ -1,9 +1,10 @@
 # Encoding: utf-8
-require 'chefspec'
-require 'chefspec/berkshelf'
 require 'coveralls'
 
 Coveralls.wear!
+
+require 'chefspec'
+require 'chefspec/berkshelf'
 
 RSpec.configure do |config|
   config.platform = 'ubuntu'
