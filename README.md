@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/evertrue/s3_dir.svg?branch=master)](https://travis-ci.org/evertrue/s3_dir)
-[![Coverage Status](https://img.shields.io/coveralls/evertrue/s3_dir.svg)](https://coveralls.io/r/evertrue/s3_dir)
+[![Cookbook Version](https://img.shields.io/cookbook/v/s3_dir.svg?style=flat)](https://supermarket.getchef.com/cookbooks/s3_dir)
+[![Build Status](http://img.shields.io/travis/evertrue/s3_dir-cookbook.svg?style=flat)](https://travis-ci.org/evertrue/s3_dir-cookbook)
+[![Coverage Status](http://img.shields.io/coveralls/evertrue/s3_dir.svg)](https://coveralls.io/r/evertrue/s3_dir)
 
 # s3_dir
 
