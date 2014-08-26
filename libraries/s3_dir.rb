@@ -37,6 +37,9 @@ module S3Lib
     end
 
     def build_mock_env(bucket, dir)
+      dir.sub!(/\/$/, '')
+      dir.sub!(/^\//, '')
+
       d = connection.directories.create(
         key: bucket,
         public: true
@@ -55,8 +58,11 @@ module S3Lib
       # This converts it.
       arr = []
       bucket_obj.files.each { |f| arr << f }
-      listing = arr.select { |o| o.key =~ /^\/#{Regexp.escape(dir)}/ }
-      listing.map { |o| o.key.sub(/\/#{Regexp.escape(dir)}/, '') }
+      listing = arr.select do |o|
+        o.key =~ /^#{Regexp.escape(dir)}/ &&
+          o.key !~ /^#{Regexp.escape(dir)}\/$/
+      end
+      listing.map { |o| o.key.sub(/^#{Regexp.escape(dir)}\//, '/') }
     end
   end
 end
