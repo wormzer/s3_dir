@@ -1,6 +1,11 @@
 s3_dir CHANGELOG
 ================
 
+v1.2.3 (2014-08-26)
+-------------------
+
+* Fix the way we parse directory listings so that arrays stop turning up empty
+
 v1.2.2 (2014-08-15)
 -------------------
 
