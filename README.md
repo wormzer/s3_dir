@@ -38,6 +38,21 @@ end
 * `access_key_id` - AWS Access Key ID
 * `secret_access_key` - AWS Secret Key
 
+## AWS Permissions
+
+The following minimum AWS permissions are required for `s3_dir` to work:
+
+```json
+"Action": [
+  "s3:GetObject",
+  "s3:ListBucket"
+],
+"Resource": [
+  "arn:aws:s3:::bucket-name",
+  "arn:aws:s3:::bucket-name/*"
+]
+```
+
 ## Contributing
 
 1. Fork the repository on Github
