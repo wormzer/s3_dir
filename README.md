@@ -45,8 +45,22 @@ The following minimum AWS permissions are required for `s3_dir` to work:
 
 ```json
 "Action": [
+  "s3:GetBucketLocation",
   "s3:GetObject",
   "s3:ListBucket"
+],
+"Resource": [
+  "arn:aws:s3:::bucket-name",
+  "arn:aws:s3:::bucket-name/*"
+]
+```
+
+However it is recommended that you request a more permissive set of permissions so as to avoid unpredictable edge cases:
+
+```json
+"Action": [
+  "s3:Get*",,
+  "s3:List*"
 ],
 "Resource": [
   "arn:aws:s3:::bucket-name",
