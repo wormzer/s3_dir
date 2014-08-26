@@ -1,6 +1,6 @@
 [![Cookbook Version](https://img.shields.io/cookbook/v/s3_dir.svg?style=flat)](https://supermarket.getchef.com/cookbooks/s3_dir)
-[![Build Status](http://img.shields.io/travis/evertrue/s3_dir-cookbook.svg?style=flat)](https://travis-ci.org/evertrue/s3_dir-cookbook)
-[![Coverage Status](http://img.shields.io/coveralls/evertrue/s3_dir-cookbook.svg?style=flat)](https://coveralls.io/r/evertrue/s3_dir-cookbook)
+[![Build Status](http://img.shields.io/travis/evertrue/s3_dir.svg?style=flat)](https://travis-ci.org/evertrue/s3_dir)
+[![Coverage Status](http://img.shields.io/coveralls/evertrue/s3_dir.svg?style=flat)](https://coveralls.io/r/evertrue/s3_dir)
 
 # s3_dir
 
