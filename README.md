@@ -24,6 +24,7 @@ s3_dir '/local/path' do
   group             'root'
   mode              '0755'
   recursive         true
+  region            'us-east-1'
   access_key_id     'ACCESS_KEY'
   secret_access_key 'SECRET_ACCESS_KEY'
 end
@@ -36,6 +37,7 @@ end
 * `group` - What you want the local file/directory group to be set to. Defaults to `root`.
 * `mode` - File permissions.  Created directories will inherit these permissions plus executability. Defaults to '0755'
 * `recursive` - Whether parent directories of `name` should be created recursively
+* `region` - AWS [Region](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html).  Defaults to `us-east-1`.  *Currently broken because the s3_file library cookbook doesn't support non-US-standard regions.*
 * `access_key_id` - AWS Access Key ID
 * `secret_access_key` - AWS Secret Key
 

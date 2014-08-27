@@ -10,5 +10,6 @@ attribute :recursive,         kind_of: [TrueClass, FalseClass],     default: fal
 attribute :access_key_id,     kind_of: String
 attribute :secret_access_key, kind_of: String
 attribute :mock,              kind_of: [TrueClass, FalseClass],     default: false
+attribute :region,            kind_of: String,                      default: 'us-east-1'
 
 default_action :create

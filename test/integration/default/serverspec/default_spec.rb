@@ -10,4 +10,14 @@ describe 'S3 Dir test' do
     it { should be_directory }
     it { should be_mode 775 }
   end
+
+  describe file '/tmp/provisioning-us-west-1' do
+    it { should be_directory }
+    it { should be_mode 775 }
+  end
+
+  describe file '/tmp/provisioning-us-west-1/testdir' do
+    it { should be_directory }
+    it { should be_mode 775 }
+  end
 end

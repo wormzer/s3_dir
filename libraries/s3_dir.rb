@@ -25,14 +25,16 @@ module S3Lib
         Fog::Storage::AWS.new(
           aws_access_key_id: @access_key_id,
           aws_secret_access_key: @secret_access_key,
+          region: @region,
           path_style: true
         )
       end
     end
 
-    def initialize(access_key_id, secret_access_key, is_mock)
+    def initialize(access_key_id, secret_access_key, region, is_mock)
       @access_key_id = access_key_id
       @secret_access_key = secret_access_key
+      @region = region
       @is_mock = is_mock
     end
 
