@@ -1,6 +1,12 @@
 s3_dir CHANGELOG
 ================
 
+v1.4.0 (2014-10-01)
+-------------------
+
+* Move test code to its own embedded cookbook
+* Allow alternate regions
+
 v1.3.0 (2014-08-26)
 -------------------
 
