@@ -40,6 +40,7 @@ action :create do
         owner new_resource.owner
         group new_resource.group
         mode new_resource.mode
+        s3_url "#{s3_dir_lib.s3_url}/#{new_resource.bucket}"
         action :create
       end
     end

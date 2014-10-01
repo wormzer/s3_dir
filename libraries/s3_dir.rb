@@ -16,22 +16,15 @@ module S3Lib
       mode
     end
 
-    def connection
-      @connection ||= begin
-        require 'fog'
-
-        Fog.mock! if @is_mock
-
-        Fog::Storage::AWS.new(
-          aws_access_key_id: @access_key_id,
-          aws_secret_access_key: @secret_access_key,
-          region: @region,
-          path_style: true
-        )
-      end
+    def s3_url
+      return 'http://localhost:5000' if @is_mock
+      return 'https://s3.amazonaws.com' if @region == 'us-east-1'
+      "https://s3-#{@region}.amazonaws.com"
     end
 
     def initialize(access_key_id, secret_access_key, region, is_mock)
+      require 'uri'
+
       @access_key_id = access_key_id
       @secret_access_key = secret_access_key
       @region = region
@@ -65,6 +58,29 @@ module S3Lib
           o.key !~ /^#{Regexp.escape(dir)}\/$/
       end
       listing.map { |o| o.key.sub(/^#{Regexp.escape(dir)}\//, '/') }
+    end
+
+    private
+
+    def connection
+      @connection ||= begin
+        require 'fog'
+
+        Fog.mock! if @is_mock
+
+        options = { aws_access_key_id: @access_key_id,
+                    aws_secret_access_key: @secret_access_key,
+                    region: @region,
+                    path_style: true }
+
+        [
+          :host,
+          :port,
+          :scheme
+        ].map { |key| options[key] = URI(s3_url).send(key) } if @is_mock
+
+        Fog::Storage::AWS.new(options)
+      end
     end
   end
 end
