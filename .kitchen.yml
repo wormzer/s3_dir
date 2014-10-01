@@ -17,4 +17,4 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[s3_dir::default]
+      - recipe[s3_dir_test::default]

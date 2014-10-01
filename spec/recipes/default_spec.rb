@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 's3_dir::default' do
+describe 's3_dir_test::default' do
   let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
 
   it 'includes the `et_fog::default` recipe' do

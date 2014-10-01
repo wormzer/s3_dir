@@ -9,22 +9,3 @@ execute 'apt-get update' do
 end.run_action(:run)
 
 include_recipe 'et_fog::default'
-
-s3_dir '/tmp/provisioning' do
-  bucket 'test-directory'
-  dir '/s3_dir_test'
-  access_key_id 'TEST_KEY'
-  secret_access_key 'TEST_SECRET'
-  mock true
-  action :create
-end
-
-s3_dir '/tmp/provisioning-us-west-1' do
-  bucket 'test-directory-us-west-1'
-  dir '/s3_dir_test'
-  access_key_id 'TEST_KEY'
-  secret_access_key 'TEST_SECRET'
-  region 'us-west-1'
-  mock true
-  action :create
-end
