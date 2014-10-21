@@ -1,6 +1,14 @@
 s3_dir CHANGELOG
 ================
 
+v1.4.1 (2014-10-21)
+-------------------
+
+* Update ChefSpec matchers to follow deprecations
+* Update gems
+* Refactor Travis config
+* Update Serverspec spec_helper to work w/ Serverspec v2
+
 v1.4.0 (2014-10-01)
 -------------------
 
