@@ -48,9 +48,17 @@ namespace :integration do
       end
     end
   end
+
+  desc 'Destroy all cloud-based Test Kitchen nodes'
+  task :cloud_destroy do
+    Kitchen.logger = Kitchen.default_file_logger
+    @loader = Kitchen::Loader::YAML.new(project_config: './.kitchen.cloud.yml')
+    config = Kitchen::Config.new(loader: @loader)
+    config.instances.each(&:destroy)
+  end
 end
 
-desc 'Run acceptance tests on Travis'
+desc 'Run all tests on Travis'
 task travis: %w(style unit integration:cloud)
 
 # Default

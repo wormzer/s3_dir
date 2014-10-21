@@ -1,5 +1,4 @@
 language: ruby
-bundler_args: --without vagrant
 rvm:
 - 1.9.3
 before_install:
@@ -15,10 +14,13 @@ before_install:
 - echo 'chef_server_url "https://api.opscode.com/organizations/evertrue"' >> ~/.chef/knife.rb
 - chmod 600 ~/.chef/knife.rb ~/.chef/trubot.pem
 - chmod 600 ~/.ssh/travis_ci_ec2.pem ~/.ssh/id_rsa
-- bundle install
-- bundle exec berks install --debug
+install:
+- bundle install --without vagrant
+- bundle exec berks install
 script:
-- bundle exec berks install && KITCHEN_LOG=debug bundle exec rake travis
+- bundle exec rake travis
+after_script:
+- bundle exec rake integration:cloud_destroy
 notifications:
   slack:
     secure: N2Jmz2nONP/+cJDTdyjKtXhNqUK95AYAMpBg/J5LzjRzor05Wp0jv/Gl24JmQ1l+LjOgTfb+rgkdsITXURtswbFChlWHz2SPfD8Q3bDt97KOk3yZ55TKm8HKNzXcnCI1wyLYaUqZiubpnIFfCax36/IK07j7CmBN6AEs+wSIPro=
