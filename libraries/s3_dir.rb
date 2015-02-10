@@ -1,21 +1,5 @@
 module S3Lib
   class Dir
-    def self.dir_mode(mode)
-      if mode.is_a?(String)
-        mode =~ /^0/ || mode = "0#{mode}"
-      elsif mode.to_s == mode.to_s(10)
-        # Mode is in Fixnum::base 10
-        mode = mode.to_s
-      else
-        mode = mode.to_s(8)
-      end
-
-      (-3..-1).each do |i|
-        mode[i] = (mode[i].to_i + 1).to_s if !mode[i].to_i.zero? && mode.to_i.even?
-      end
-      mode
-    end
-
     def s3_url
       return 'http://localhost:5000' if @is_mock
       return 'https://s3.amazonaws.com' if @region == 'us-east-1'
