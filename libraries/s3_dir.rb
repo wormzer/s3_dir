@@ -54,8 +54,12 @@ module S3Lib
 
         options = { region: @region,
                     path_style: true }
-				options[:aws_access_key_id] = @access_key_id if @access_key_id
-				options[:aws_secret_access_key] = @aws_secret_access_key if @aws_secret_access_key
+				if @access_key_id
+					options[:aws_access_key_id] = @access_key_id
+					options[:aws_secret_access_key] = @aws_secret_access_key
+				else
+					options[:use_iam_profile] = true
+				end
 
         [
           :host,
